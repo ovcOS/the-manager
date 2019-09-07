@@ -1,14 +1,16 @@
+// @flow
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-const expressApp = express();
+const app = express();
 const port = process.env.PORT || 5000;
 
-expressApp.use(cors());
-expressApp.use(express.json());
+app.use(cors());
+app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
 
@@ -19,6 +21,10 @@ db.once("open", () => {
 	console.log("DB up and running!");
 });
 
-expressApp.listen(port, () => {
+const workspaceRouter = require("./routes/workspace");
+
+app.use("/workspace", workspaceRouter);
+
+app.listen(port, () => {
 	console.log(`Live from port ${port}`);
 });
