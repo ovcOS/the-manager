@@ -9,7 +9,7 @@
     "eslint-plugin-prettier": "3.1.0",
     "eslint-utils": "1.4.2",
     "express": "4.17.1",
-    "mongoose": "5.6.13",
+    "mongoose": "5.7.5",
     "nodemon": "1.19.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
